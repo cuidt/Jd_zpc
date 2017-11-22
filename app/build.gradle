@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.jd_zpc"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {//C:\Users\vcc\keystore.jks
+            storeFile file("D:/program/签名文件/Jd_zpc.jks")//keystore的路径
+            storePassword "777777"
+            keyAlias "jd"
+            keyPassword "777777"
+        }
+        debug {
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.makeramen:roundedimageview:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.okio:okio:1.5.0'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+//    implementation 'com.android.support:recyclerview-v7:27.0.0'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.acker:simplezxing:1.5'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    implementation files('libs/alipaySdk-20170725.jar')
+    implementation files('libs/xUtils-2.6.14.jar')
+    implementation files('libs/SocialSDK_QQ_Simplify.jar')
+    implementation files('libs/SocialSDK_Sina_Simplify.jar')
+    implementation files('libs/SocialSDK_WeiXin_Full.jar')
+    implementation files('libs/umeng_shareboard_widget.jar')
+    implementation files('libs/umeng_social_api.jar')
+    implementation files('libs/umeng_social_net.jar')
+    implementation files('libs/umeng_social_shareboard.jar')
+    implementation files('libs/umeng_social_shareview.jar')
+    implementation files('libs/umeng_social_tool.jar')
+    implementation files('libs/wechat-sdk-android-with-mta-1.1.6.jar')
+    compile 'com.loopj.android:android-async-http:1.4.9'
+}

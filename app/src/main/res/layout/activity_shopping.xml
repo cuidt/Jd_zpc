@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jd_zpc.view.ShoppingActivity">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#ff3660"
+    android:textSize="30sp"
+    android:textColor="#fff"
+    android:gravity="center"
+    android:text="支付"></TextView>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <RadioButton
+            android:id="@+id/bt_wexin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信支付"/>
+        <RadioButton
+            android:id="@+id/bt_zhifubao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:checked="true"
+            android:text="支付宝支付"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/bt_queren"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:text="确认支付"
+        android:background="#ff5001"
+        android:layout_margin="20dp"/>
+</LinearLayout>
