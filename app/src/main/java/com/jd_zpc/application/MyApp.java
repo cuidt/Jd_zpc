@@ -18,7 +18,7 @@ public class MyApp extends Application{
         Fresco.initialize(this);
     }
     {
-        PlatformConfig.setWeixin("","");
+        PlatformConfig.setWeixin("wx8baf4861c19e6eda","5b3d61d73f10ff79b3577a3165151b80");
         PlatformConfig.setQQZone("1106390723","qDdup5FjlJOKaBKt");
         PlatformConfig.setSinaWeibo("","","");
     }

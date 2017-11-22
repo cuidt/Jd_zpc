@@ -20,6 +20,7 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -117,7 +118,7 @@ public class DetailActivity extends BaseActivity implements DetailListener, View
             default:
                 break;
             case R.id.tv_detail_share:
-                UMWeb web = new UMWeb("http://www.baidu.com");
+                /*UMWeb web = new UMWeb("http://www.baidu.com");
                 web.setTitle("百度");
                 web.setDescription("百度一下,你就知道!");
                 new ShareAction(DetailActivity.this)
@@ -125,12 +126,21 @@ public class DetailActivity extends BaseActivity implements DetailListener, View
                         .withText("hello")//分享内容
                         .withMedia(web)
                         .setCallback(shareListener)//回调监听器
-                        .share();
-
+                        .share();*/
+                ShareWeb("");
                 break;
         }
     }
 
+    private void ShareWeb(String thumb_img) {
+        UMImage thumb = new UMImage(this, thumb_img);
+        UMWeb web = new UMWeb("http://www.baidu.com");
+        web.setThumb(thumb);
+        web.setDescription("百度一下");
+        web.setTitle("百度");
+        new ShareAction(this).withMedia(web)
+                .setPlatform(SHARE_MEDIA.WEIXIN).setCallback(shareListener).share();
+    }
 
     private class Glider implements ImageLoaderInterface {
         @Override
@@ -166,7 +176,7 @@ public class DetailActivity extends BaseActivity implements DetailListener, View
          */
         @Override
         public void onResult(SHARE_MEDIA platform) {
-            Toast.makeText(DetailActivity.this,"成功了",Toast.LENGTH_LONG).show();
+            Toast.makeText(DetailActivity.this, "成功了", Toast.LENGTH_LONG).show();
         }
 
         /**
@@ -176,7 +186,7 @@ public class DetailActivity extends BaseActivity implements DetailListener, View
          */
         @Override
         public void onError(SHARE_MEDIA platform, Throwable t) {
-            Toast.makeText(DetailActivity.this,"失败"+t.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(DetailActivity.this, "失败" + t.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         /**
@@ -185,10 +195,11 @@ public class DetailActivity extends BaseActivity implements DetailListener, View
          */
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(DetailActivity.this,"取消了",Toast.LENGTH_LONG).show();
+            Toast.makeText(DetailActivity.this, "取消了", Toast.LENGTH_LONG).show();
 
         }
     };
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
